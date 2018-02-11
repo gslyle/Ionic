@@ -21,7 +21,7 @@ export class QuotesPage implements OnInit {
       this.quoteGroup = this.navParams.data;
     }
 
-    onAddToFavourite(selectedQuote: Quote){
+    onAddToFavourites(selectedQuote: Quote){
       const alert = this.alertCtrl.create({
         title: 'Add Quote',        
         message: 'Are you sure you want to add the quote?',
@@ -43,4 +43,13 @@ export class QuotesPage implements OnInit {
       });
       alert.present();
     }
+
+    onRemoveFromFavourites(quote: Quote){
+      this.quoteService.removeQuoteFromFavourites(quote);
+    }
+
+    isFavourite(quote: Quote){
+      return this.quoteService.isQuoteFavourite(quote);
+    }
+
 }

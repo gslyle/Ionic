@@ -8,7 +8,7 @@ export class QuotesService{
     console.log(this.favouriteQuotes);
   }
 
-  removeQuoteToFavourites(quote: Quote){
+  removeQuoteFromFavourites(quote: Quote){
     const position = this.favouriteQuotes.findIndex((quoteEl: Quote) => {
       return quoteEl.id == quote.id;
     });
@@ -17,6 +17,12 @@ export class QuotesService{
 
   getFavouriteQuotes(){
     return this.favouriteQuotes.slice();
+  }
+
+  isQuoteFavourite(quote: Quote){
+    return this.favouriteQuotes.find((quoteEl: Quote) => {
+      return quoteEl.id == quote.id;
+    });
   }
 
 }
