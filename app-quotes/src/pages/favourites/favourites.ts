@@ -22,9 +22,14 @@ export class FavouritesPage {
     modal.present();
     modal.onDidDismiss( (remove:boolean) => {
       if (remove) {
-        this.quotesService.removeQuoteFromFavourites(quote);
-        this.quotes = this.quotesService.getFavouriteQuotes();
+        this.onRemoveFromFavourites(quote);
       }
     });
   }
+
+  onRemoveFromFavourites(quote: Quote){
+    this.quotesService.removeQuoteFromFavourites(quote);
+    this.quotes = this.quotesService.getFavouriteQuotes();
+  }
+
 }
